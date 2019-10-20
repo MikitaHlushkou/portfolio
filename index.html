@@ -1,12 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="wrapper">
+        <header>
+          <div class="personal-logo">
+            <img src="/assets/images/personal-logo.jpg" alt="" width="120px" height="120px">
+          </div>
+          <div class="short-info">
+            <ul class="short-info--list">
+              <li class="short-info--element">Mikita Hlushkou </li>
+              <li class="short-info--element"><a href="https://github.com/MikitaHlushkou">My github </a> </li>
+              <li class="short-info--element">
+                <a href="https://vk.com/shepardsr2" class="short-info--links">Vk</a>
+                <!--<a href="" class="short-info--links">Skype</a>
+    <a href="#" class="short-info--links">Telegram</a> -->
     
+              </li>
+            </ul>
+          </div>
+        </header>
+        <main>
+          <div id="test" class="education_info">
+            <!---  <a href="#test">Education</a> -->
+            <div class="education">Education
+              <input class="open" id="top-box" type="checkbox" hidden>
+            <label class="btn" for="top-box">Показать/Скрыть </label>
+              <ul class="education_info--list">
+                <li class="education_info--element">School-Gymnasium №6<br>2005-2015</li>
+                <li class="education_info--element">University-BSUIR<br>2015-2019</li>
+                <li class="education_info--element">Epam- ServiceNow course<br>February 2019- Aprill 2019</li>
+              </ul>
+            </div>
+          </div>
+  
+  <div class="carousel">
+    <div class="items-container">
+      <div class="item active">
+        
+        <div class="description">
+            <input class="slider_show_description" id="slider" type="button" value="show description">
+          <!--  <label class="btn1" for="slider">test</label> -->
+            <ul id="slider_list_first" class="hide education_info--list1">
+              <li class="education_info--element1">BAM</li>
+              <li class="education_info--element1">Responsive</li>
+       </ul>
+          <div class="project-name">
+       
+<p>Repair design project has following features:BAM,Responsive</p>
+<p>click on image to the right side to open project </p>
+          </div>
+          <div class="img-container">
+              <a href="/projects/repair-design-project/jframe.html"> <img class="project-image" src="/assets/images/repair-design.PNG"
+                alt="project"></a>
+          </div>
+         
+        </div>
+      </div>
+      <div class="item">
+          
+        <div class="description">
+            <input class="slider_show_description" id="slider_second" type="button" value="show description">
+            <!--  <label class="btn1" for="slider">test</label> -->
+              <ul id="slider_list_second" class="hide education_info--list1">
+                <li class="education_info--element1">BAM</li>
+                <li class="education_info--element1">Adaptive</li>
+         </ul>
+            <div class="project-name">
+         
+  <p>TheyAlow project has following features:BAM,Adaptive</p>
+  <p>click on image to the right side to open project </p>
+  
+            </div>
+            <div class="img-container">
+                <a href="/projects/theyalow/jframe.html"> <img class="project-image" src="/assets/images/THEYALOW Desktop.jpg"
+                  alt="project"></a>
+            </div>
+        </div>
+      </div>
+    
+    </div>
+    <div class="control left">
+      <div class="arrow left">&lt;</div>
+    </div>
+    <div class="control right">
+      <div class="arrow right">&gt;</div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

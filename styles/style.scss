@@ -1,0 +1,2392 @@
+@import "fonts.scss";
+$col:#E3B873;
+$px14: 0.875em;
+$mainHeight:10067;
+
+
+//миксин на шрифт
+
+@function strip-unit($number) {
+    @if type-of($number)=='number'and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+// Responsive text mixin
+@mixin responsiveText ($minSize: $font-size, $maxSize: 28px, $minWidth: 375px, $maxWidth: 1438px) {
+
+
+    $mxS: strip-unit($maxSize);
+    $mnS: strip-unit($minSize);
+    $mxW: strip-unit($maxWidth);
+    $mnW: strip-unit($minWidth);
+
+    font-size: calc(#{$minSize} + (#{$mxS} - #{$mnS}) * (100vw - #{$minWidth}) / (#{$mxW} - #{$mnW}));
+
+    @media screen and (max-width: $minWidth) {
+        font-size: $minSize;
+    }
+
+    @media screen and (min-width: $maxWidth) {
+        font-size: $maxSize;
+    }
+
+}
+
+
+
+// 
+html {
+    font-size: 100%;
+}
+
+* img {
+    max-width: 100% !important;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1438px;
+    height: 10150px;
+    margin: 0 auto;
+    background: #FFFFFF;
+}
+
+header {
+
+    width: 100%;
+    height: 0.81%;
+    background: #131313;
+
+    & .container {
+        display: flex;
+        justify-content: space-between;
+        vertical-align: middle;
+        flex-wrap: wrap;
+
+        width: 87.3%;
+        height: 100%;
+        padding-top: 2.8%;
+        margin: 0 auto;
+
+        & .header-RequestCall {
+            margin-top: -1%;
+        }
+    }
+
+    & .name {
+        color: yellow;
+        height: 12.2%;
+        font-family: FuturaDemiC;
+        @include responsiveText(12px, 14px);
+        //  font-size: 0.875em;
+        line-height: 16px;
+        text-transform: uppercase;
+        color: $col;
+    }
+
+    & .header-nav {
+
+
+        min-width: 46.3%;
+        height: 12.2%;
+        align-items: center;
+
+        &--ul {
+
+            height: 100%;
+            display: flex;
+            flex-basis: auto;
+            flex-shrink: 1;
+            font-family: FuturaBookC;
+            @include responsiveText(12px, 14px);
+            //  font-size: 0.85em;
+            line-height: 16px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+
+            //justify-content: space-between;
+            & li {
+                //п display:inline-block;
+            }
+
+            & li:not(:first-child) {
+                margin-left: 8.08%;
+            }
+
+            & a {
+                text-decoration: none;
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    & .header-phone {
+        min-width: 10.04%;
+        height: 19.2%;
+        //font-family: FuturaDemiC;
+        font-family: FuturaDemiC;
+        @include responsiveText(12px, 14px);
+        // font-size: $px14;
+        line-height: 16px;
+        text-align: right;
+        text-decoration-line: underline;
+
+        color: #E3B873;
+
+    }
+
+    & .header-RequestCall {
+
+        position: relative;
+        min-width: 12.83%;
+        height: 45.1%;
+        background: #E3B873;
+        box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.2);
+        border-radius: 5.4%;
+
+        & span {
+            position: absolute;
+            top: 32%;
+            left: 22%;
+            min-width: 59.38%;
+            height: 30%;
+            font-family: FuturaDemiC;
+            @include responsiveText(13px, 14px);
+            //    font-size: 0.8125em;
+            line-height: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+    }
+}
+
+main {
+    width: 100%;
+    max-width: 1438px;
+    height: 97.95%;
+}
+
+.intro {
+    position: relative;
+    width: 100%;
+    height: 7.12%;
+    display: flex;
+
+    /* &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+    }
+    */
+    &--form {
+        margin-top: 5.20%;
+        width: 46.07%;
+        height: 6.46%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &--content {
+        position: relative;
+        width: 94.4%;
+        height: 100%;
+        padding-left: 3.87%;
+        background-image: url(../assets/images/intro-backgound.png);
+        background-size: cover;
+
+        & h2 {
+            margin-top: 16.73%;
+            font-family: Yeseva One;
+            font-style: normal;
+            @include responsiveText(23px, 40px);
+            font-weight: normal;
+            //  font-size: 2.5rem;
+            //   line-height: 53px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 2;
+
+            & span {
+                color: #E3B873;
+
+            }
+        }
+
+        & p {
+
+            padding-top: 2.68%;
+            font-family: FuturaBookC;
+            @include responsiveText(18px, 22px);
+            //  font-size: 1.375em;
+            line-height: 30px;
+            color: #FFFFFF;
+            z-index: 2;
+        }
+    }
+
+    & aside {
+
+        width: 5.6%;
+        height: 100%;
+        background: #131313;
+        z-index: 2;
+
+        & .intro--instagram {
+            display: block;
+            position: relative;
+            top: 50.05%;
+            font-family: FuturaDemiC;
+            @include responsiveText(12px, 14px);
+            // font-size: $px14;
+            line-height: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            transform: rotate(90deg);
+            color: #E3B873;
+            z-index: 2;
+        }
+
+    }
+
+
+
+    & button span {
+        font-family: FuturaDemiC;
+        font-size: 0.81em;
+        line-height: 15px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+
+    &--button {
+        width: 47.69%;
+
+        &-painted_over {
+
+            left: 4.3%;
+            top: 57%;
+            //  width: 15.24%;
+            //height: 7.21%;
+            background: #E3B873;
+            box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.3);
+            border-radius: 2px;
+            z-index: 2;
+        }
+
+        &-unpainted {
+
+            left: 21%;
+            top: 57%;
+            // width: 15.24%;
+            // height: 7.21%;
+            border: 1px solid #FFFFFF;
+            box-sizing: border-box;
+            border-radius: 2px;
+            background: none;
+            z-index: 2;
+        }
+    }
+
+    &--scroll-down {
+        position: absolute;
+        left: 0%;
+        bottom: -3%;
+        width: 17.17%;
+        height: 13.73%;
+        background: #131313;
+        color: white;
+        z-index: 2;
+
+
+        & span {
+            position: absolute;
+            left: 20%;
+            top: 42%;
+            bottom: 92.13%;
+            font-family: Yeseva One;
+            font-style: normal;
+            font-weight: normal;
+            @include responsiveText(12px, 14px);
+            // font-size: $px14;
+            line-height: 19px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+
+        }
+
+        & img {
+            position: absolute;
+            right: 22.23%;
+            top: 34.64%;
+
+        }
+    }
+}
+
+.portfolio {
+    width: 100%;
+    height: 11.22%;
+    margin-top: 20px;
+    background: #131313;
+
+    &--cities_nav {
+
+
+        margin-left: 41.31%;
+
+        padding-top: 5.84%;
+
+        width: 43.32%;
+        height: 0.24%;
+        font-family: Yeseva One;
+        font-style: normal;
+        font-weight: normal;
+        @include responsiveText(12px, 14px);
+        // font-size: $px14;
+        line-height: 19px;
+        text-transform: uppercase;
+
+        & .flex_container {
+            display: flex;
+            justify-content: space-between;
+
+            &--elem:hover {
+                color: $col;
+                text-decoration: underline yellow;
+            }
+        }
+
+    }
+
+    & .completed_projects {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 5%;
+        margin-left: 7.02%;
+        bottom: 86.64%;
+        width: 30.73%;
+        height: 35%;
+        color: white;
+
+        &--headline {
+            width: 57.23%;
+            height: 16.92%;
+            font-family: Yeseva One;
+            font-style: normal;
+            font-weight: normal;
+            @include responsiveText(22px, 27px);
+            //  font-size: 1.6875em;
+            line-height: 37px;
+            letter-spacing: -0.07em;
+            text-transform: uppercase;
+
+            color: $col;
+
+        }
+
+        &--description {
+            padding-top: 11.72%;
+            width: 100%;
+            height: 22.05%;
+            font-family: FuturaBookC;
+            @include responsiveText(14px, 18px);
+            //  font-size: 1.125em;
+            line-height: 29px;
+            color: #FFFFFF;
+
+        }
+
+        &--flex_container {
+            display: flex;
+            justify-content: space-between;
+            height: 39.95%;
+            margin-top: 10.66%;
+
+            & .flex_container_left_collum {
+                width: 30.77%;
+
+                &--headline {
+
+                    font-family: Yeseva One;
+                    font-style: normal;
+                    font-weight: normal;
+                    @include responsiveText(14px, 18px);
+                    // font-size: 1.125em;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    color: $col;
+
+                    &:nth-child(3) {
+                        margin-top: 18%;
+                    }
+                }
+
+                &--text {
+                    font-family: FuturaBookC;
+                    @include responsiveText(14px, 15px);
+                    //font-size: 0.9375em;
+                    line-height: 20px;
+
+                    color: #FFFFFF;
+                    margin-bottom: 2%;
+                }
+            }
+
+            & .flex_container_right_collum {
+                width: 49.59%;
+
+                &--headline {
+
+                    font-family: Yeseva One;
+                    font-style: normal;
+                    font-weight: normal;
+                    @include responsiveText(14px, 18px);
+                    // font-size: 1.125em;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    color: $col;
+
+                    &:nth-child(3) {
+                        margin-top: 18%;
+                    }
+                }
+
+                &--text {
+                    font-family: FuturaBookC;
+                    @include responsiveText(14px, 15px);
+                    //font-size: 0.9375em;
+                    line-height: 20px;
+
+                    color: #FFFFFF;
+
+                }
+            }
+        }
+
+    }
+
+    &--slider {
+        position: relative;
+        display: inline-block;
+        width: 58.62%;
+        height: 43.23%;
+        margin-top: 5%;
+        overflow: hidden;
+
+        &-center {
+            display: inline-block;
+
+            // left: 41.24%;
+            // right: 11.54%;
+            // top: 9.52%;
+            width: 80.54%;
+            height: 100%;
+            //  width: 47.15%;
+
+        }
+
+        &-right {
+
+            position: relative;
+            display: inline-block;
+            height: 100%;
+            margin-left: 1%;
+            // right: -37.13%;
+            // top: 9.52%;
+            // bottom: 85.73%;
+            // width: 47.15%;
+
+            & .slider_right_button {
+                position: absolute;
+                top: 43.62%;
+                left: 43.62%;
+                width: 37.31%;
+                height: 11.18%;
+                object-fit: contain;
+            }
+        }
+    }
+
+
+    &--change_project {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        left: 7.09%;
+        right: 78.6%;
+        top: 14.95%;
+        bottom: 85.72%;
+        width: 14.30%;
+        height: 0.13%;
+
+        &>div:not(.portfolio--change_project-center) {
+            width: 20.15%;
+            height: 100%;
+            background-image: url(../assets/images/arrow-change-project.svg);
+
+        }
+
+        &-left {
+            transform: rotate(-180deg);
+        }
+
+        &-center {
+            display: flex;
+            justify-content: space-between;
+            width: 31%;
+
+            & div {
+                width: 15.24%;
+                height: 72.06%;
+                background-image: url(../assets/images/circle-change-project.svg);
+
+                &:hover {
+                    background: #FFFFFF;
+                    border-radius: 1.875em;
+                }
+            }
+        }
+    }
+
+    &--online-control {
+
+        margin-top: 6.25%;
+        margin-left: 43.32%;
+        width: 13.63%;
+        height: 5.95%;
+        background-image: url(../assets/images/online-control.svg);
+        background-position: bottom center;
+        background-repeat: no-repeat;
+
+        & span {
+
+            width: 100%;
+            font-family: Yeseva One;
+            font-style: normal;
+            font-weight: normal;
+            @include responsiveText(14px, 22px);
+            // font-size: 20px;
+            line-height: 28px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+
+
+        }
+    }
+
+    &--video {
+        margin-top: 2%;
+        margin-left: 21.63%;
+
+        width: 56.81%;
+        height: 38.92%;
+    }
+}
+
+.online-control {
+    width: 100%;
+    height: 7.19%;
+
+    &--description {
+        margin-left: 26.36%;
+        padding-top: 16.38%;
+        bottom: 77.33%;
+        width: 47.35%;
+        height: 27.29%;
+
+        &-desktop {
+
+
+            height: 100%;
+            font-family: FuturaBookC;
+            @include responsiveText(14px, 20px);
+            //font-size: 20px;
+            line-height: 34px;
+            text-align: center;
+
+            color: #363636;
+        }
+
+        &-mobile {
+            display: none;
+        }
+    }
+
+    &--form {
+
+        margin: 0 auto;
+        margin-top: 4.58%;
+
+
+        width: 53.47%;
+        height: 9.5%;
+
+        & .form_online_control {
+
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            &--text_input {
+                //  position: absolute;
+
+                bottom: 0%;
+                width: 30.04%;
+                height: 57.7%;
+                background: none;
+                border: none;
+                border-bottom: 1px solid black;
+                /*for tests 
+                background: green;
+ */
+            }
+
+            &--submit_btn {
+                //  position: absolute;
+                right: 0%;
+                background: #E3B873;
+                box-shadow: 0px 15px 15px rgba(227, 184, 115, 0.15);
+                border-radius: 2px;
+                width: 26%;
+                height: 75%;
+                font-family: FuturaDemiC;
+                @include responsiveText(15px, 15px);
+                // font-size: 15px;
+                line-height: 26px;
+                text-align: center;
+                text-transform: uppercase;
+                color: #FFFFFF;
+                border: none;
+
+            }
+
+            &--submit_btn {}
+
+            & .username-input {
+                left: 0%;
+            }
+
+            & .phone-input {
+                right: 32.37%;
+            }
+
+            &--text_label {
+                position: relative;
+                height: 26.6%;
+                left: 6%;
+                bottom: 8%;
+                font-family: FuturaBookC;
+                font-size: 15px;
+                line-height: 20px;
+                color: rgba(54, 54, 54, 0.5);
+
+
+
+                &:last-child {
+                    bottom: -88%;
+                    left: 35%;
+                    font-family: FuturaBookC;
+                    font-size: 1em;
+                    line-height: 22px;
+
+                    color: #181818;
+
+                }
+            }
+
+            & [type=checkbox] {
+                position: absolute;
+                bottom: -92%;
+                left: 31%;
+            }
+        }
+
+    }
+}
+
+.types-of-repair {
+    width: 100%;
+    height: 8.35%;
+
+    &--logo {
+
+        width: 17.87%;
+        height: 8.06%;
+        margin-left: 40.96%;
+
+        background-image: url(../assets/images/types-of-repair-logo.svg);
+        background-repeat: no-repeat;
+        background-position: bottom 20% center;
+
+        & h2 {
+            font-family: Yeseva One;
+            font-style: normal;
+            font-weight: normal;
+
+            font-size: 20px;
+            line-height: 28px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #181818;
+        }
+
+    }
+
+    &--columns {
+
+        display: flex;
+        justify-content: space-between;
+        width: 85.95%;
+        height: 72%;
+        margin-top: 67px;
+        margin-left: 7%;
+    }
+
+    &--column {
+        position: relative;
+        width: 31.71%;
+        height: 69.47%;
+        background: green;
+    }
+
+    &--children {
+        position: relative;
+        width: 84.18%;
+        height: 67.9%;
+        bottom: 32%;
+        left: 7.90%;
+        //top: 69.8%;
+
+        background: #FFFFFF;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.03);
+
+        & h3 {
+            position: absolute;
+            width: 69.09%;
+            height: 7.34%;
+            top: 8.74%;
+            left: 11.61%;
+            font-family: Yeseva One;
+            font-style: normal;
+            font-weight: normal;
+            @include responsiveText(15px, 18px);
+            // font-size: 1.125em;
+            line-height: 25px;
+            color: #363636;
+        }
+
+        ///   !!! стили тут
+        & ul {
+            position: absolute;
+            left: 11.61%;
+            right: 69.82%;
+            top: 20.62%;
+            bottom: 67.76%;
+            width: 80.9%;
+            height: 62.23%;
+            list-style-type: disc;
+            font-family: FuturaBookC;
+            @include responsiveText(13px, 15px);
+            // font-size: 0.9375em;
+            line-height: 25px;
+
+            color: #959595;
+        }
+
+        & .price_label {
+            position: absolute;
+            width: 69.09%;
+            height: 18.88%;
+            top: 90.09%;
+            background: #E3B873;
+            box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.3);
+
+            & span {
+                position: absolute;
+                left: 10.81%;
+                right: 76.32%;
+                top: 32.63%;
+                bottom: 67.17%;
+                width: 85.08%;
+                height: 37.03%;
+                font-family: Yeseva One;
+                font-style: normal;
+                font-weight: normal;
+                @include responsiveText(15px, 18px);
+                //  font-size: 18px;
+                line-height: 25px;
+                text-transform: uppercase;
+                color: #FFFFFF;
+
+            }
+        }
+    }
+
+}
+
+.consultation_order {
+    position: relative;
+    width: 100%;
+    height: 9.74%;
+    //968px- высота
+
+
+    &--steps-of-order {
+        display: inline-block;
+        width: 48.8%;
+        height: 66.63%;
+        background-image: url(../assets/images/consultation-steps.png);
+        background-position: -170px 0px;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        //object-fit: cover;
+        //object-position: 170px 0px;
+
+    }
+
+    &--form-container {
+        display: inline-block;
+        width: 35.18%;
+        height: 52.58%;
+        background: #131313;
+        vertical-align: top;
+        margin-top: 7%;
+        margin-left: 8.93%;
+
+        box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.05);
+
+        & .form_headline {
+
+            width: 58.09%;
+            height: 9.23%;
+            margin-left: 20.55%;
+            margin-top: 5.50%;
+
+            & p {
+                font-family: FuturaDemiC;
+                font-size: 20px;
+                line-height: 25px;
+                text-align: center;
+
+                color: #FFFFFF;
+
+            }
+        }
+
+        & .consultation_form_text {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 9.68%;
+            margin-top: 11.39%;
+            width: 80.63%;
+            height: 47.93%;
+
+            &--text_input {
+                font-family: FuturaMediumC;
+                font-size: 18px;
+                line-height: 25px;
+                background: #131313;
+                border: none;
+                border-bottom: 3px yellow;
+                color: #FFFFFF;
+                width: 100%;
+            }
+        }
+
+        & .consultation_form_checkbox {
+
+            width: 56.44%;
+            height: 3.53%;
+            margin-left: 9.68%;
+            top: 69.47%;
+            font-family: FuturaBookC;
+            font-size: 16px;
+            line-height: 22px;
+
+            color: #FFFFFF;
+
+            &--checkbox {
+                background-color: #E3B873;
+                width: 3.55%;
+                height: 3.55%;
+                border-radius: 1px;
+
+                &:after {
+                    content: " ";
+                    width: 3.55%;
+                    height: 3.55%;
+                    background-color: #E3B873;
+                    display: inline-block;
+                    visibility: visible;
+                }
+            }
+        }
+
+        & .consultation_form_submit {
+
+            margin-left: 54.68%;
+            margin-top: 4.3%;
+            width: 42.09%;
+            height: 9.62%;
+            background: #E3B873;
+
+            &--button_text {
+
+                width: 100%;
+                height: 100%;
+                background: none;
+                border: none;
+                font-family: FuturaDemiC;
+                font-size: 13px;
+                line-height: 18px;
+                text-align: center;
+                text-transform: uppercase;
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    &--advantage_block {
+        position: absolute;
+        width: 30.66%;
+        height: 7.43%;
+        right: 9.10%;
+        top: 67.46%;
+
+        & .logo {
+            position: absolute;
+            width: 16.32%;
+            height: 100%;
+            background-image: url(../assets/images/consultation_advantage.svg);
+            background-position: 49% 24%;
+        }
+
+        & .text {
+            position: absolute;
+            width: 78.01%;
+            height: 65.27%;
+            right: 0%;
+            font-family: FuturaDemiC;
+            font-size: 20px;
+            line-height: 25px;
+            color: #E3B873;
+
+        }
+    }
+}
+
+.design_types {
+    position: relative;
+    height: 8.69%;
+    background: url(../assets/images/design_types-bg_logo.png) no-repeat;
+
+    &--headline {
+
+        width: 28.58%;
+        height: 7.63%;
+        margin-left: 6.88%;
+        padding-top: 9.85%;
+        font-family: Yeseva One;
+        font-style: normal;
+        font-weight: normal;
+        @include responsiveText(22px, 27px);
+        // font-size: 27px;
+        line-height: 37px;
+        text-transform: uppercase;
+        color: #E3B873;
+
+    }
+
+    &--list {
+
+        width: 20.79%;
+        height: 59.72%;
+        margin-top: 2.93%;
+        margin-left: 6.88%;
+
+        & .list_of_design_styles {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &--name_of_style {
+                font-family: Proxima Nova;
+                font-size: 20px;
+                line-height: 34px;
+                color: #FFFFFF;
+
+                &:hover {
+                    color: #E3B873;
+                    text-decoration: underline;
+                }
+
+            }
+        }
+    }
+
+    //недоделанные изображения снизу
+    &--images_container {
+        position: absolute;
+        right: 0%;
+        bottom: 2%;
+        width: 59.31%;
+        height: 100%;
+        //   background: darkgreen;
+        display: flex;
+        flex-direction: row;
+
+        & .left_column {
+            & img:first-child {
+                position: relative;
+                bottom: 4.62%;
+            }
+        }
+
+        & .right_column {
+            & img:first-child {
+                position: relative;
+                bottom: 13.06%;
+            }
+
+            & img:last-child {
+                position: relative;
+                bottom: 10%;
+            }
+        }
+        & .mobile_slider{
+            display: none;;
+        }
+    }
+
+}
+
+.design_project {
+    position: relative;
+    width: 100%;
+    // height: 10.93%;
+    height: 10.93%;
+
+    &--logo {
+
+        width: 17.87%;
+        height: 7.19%;
+        margin-left: 41.09%;
+        padding-top: 10.16%;
+        font-family: Yeseva One;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #181818;
+        background-image: url(../assets/images/design_project_logo.svg);
+        background-position: 51% 81%;
+        background-repeat: no-repeat;
+
+    }
+
+    &--description {
+
+        width: 53.05%;
+        height: 6.27%;
+        margin-left: 23.5%;
+        margin-top: 0.62%;
+        font-family: FuturaBookC;
+        @include responsiveText(15px, 20px);
+        //  font-size: 20px;
+        line-height: 27px;
+        text-align: center;
+
+        color: #363636;
+    }
+
+
+    // Повтор флекс контейнера- изменить в будущем!
+    &--collums_container {
+
+        display: flex;
+        justify-content: space-between;
+        margin-top: 4%;
+        left: 7.12%;
+        width: 85.88%;
+        height: 80.5%;
+        display: flex;
+
+        background: grey;
+
+    }
+
+    //лучге поменять класс _column
+    &_column {
+        position: relative;
+        width: 31.71%;
+        height: 56.8%;
+        background: green;
+
+        &:nth-child(1) {
+            & .design_project_column--children {
+                height: 50.11%;
+
+            }
+        }
+
+        &:nth-child(2) {
+            & .design_project_column--children {
+                height: 67.93%;
+
+            }
+        }
+
+        &:nth-child(3) {
+            & .design_project_column--children {
+                height: 98.33%;
+
+            }
+        }
+
+        &--children {
+            position: relative;
+            width: 84.18%;
+            height: 67.9%;
+            //top: 69.8%;
+            // left: 7.90%;
+            bottom: 37%;
+            background: #FFFFFF;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.03);
+
+            & .price_label {
+                position: absolute;
+                width: 69.09%;
+                height: 18.88%;
+                top: 90.09%;
+                background: #E3B873;
+                box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.3);
+
+                & span {
+                    position: absolute;
+                    left: 10.81%;
+                    right: 76.32%;
+                    top: 32.63%;
+                    bottom: 67.17%;
+                    width: 85.08%;
+                    height: 37.03%;
+                    font-family: Yeseva One;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 25px;
+                    text-transform: uppercase;
+
+                    color: #FFFFFF;
+
+                }
+            }
+
+            & h3 {
+
+                width: 69.09%;
+                height: 7.34%;
+                margin-top: 5.74%;
+                margin-left: 11.61%;
+                font-family: Yeseva One;
+                font-style: normal;
+                font-weight: normal;
+                @include responsiveText(15px, 18px);
+                //  font-size: 1.125em;
+                line-height: 25px;
+                color: #363636;
+            }
+
+            & .design_project_column_list {
+
+                margin-left: 11.61%;
+
+                margin-top: 2%;
+                width: 80.9%;
+                height: 62.23%;
+                font-family: FuturaBookC;
+                @include responsiveText(13px, 15px);
+                //font-size: 0.9375em;
+                line-height: 25px;
+                list-style: disc;
+
+                color: #959595;
+            }
+        }
+
+    }
+}
+
+.working_steps {
+    position: relative;
+    height: 8.42%;
+    background: #131313;
+
+    &--headline {
+        width: 17.59%;
+        height: 8.8;
+        position: absolute;
+        left: 6.19%;
+        font-family: Yeseva One;
+        font-style: normal;
+        font-weight: normal;
+        @include responsiveText(22px, 27px);
+        //font-size: 27px;
+        line-height: 37px;
+        text-transform: uppercase;
+        color: #E3B873;
+    }
+
+    &--container_of_steps {
+        position: relative;
+        left: 39.77%;
+        width: 53.19%;
+        height: 23.73%;
+        padding-top: 2%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        & .step {
+            &--number {
+                font-family: Yeseva One;
+                font-style: normal;
+                font-weight: normal;
+                @include responsiveText(13px, 15px);
+                line-height: 21px;
+                text-transform: uppercase;
+                color: #FFFFFF;
+
+                &-top {
+                    font-family: Yeseva One;
+                    font-style: normal;
+                    font-weight: normal;
+                    @include responsiveText(13px, 15px);
+                    //font-size: 15px;
+                    line-height: 21px;
+                    text-transform: uppercase;
+
+                    color: #FFFFFF;
+
+                }
+
+                &-bottom {
+                    margin-top: 68%;
+                    font-style: normal;
+                    font-weight: normal;
+                    @include responsiveText(13px, 15px);
+                    //  font-size: 15px;
+                    line-height: 21px;
+                    text-transform: uppercase;
+                    color: #FFFFFF;
+                }
+            }
+
+            &--description {
+                font-family: FuturaBookC;
+                @include responsiveText(13px, 15px);
+                // font-size: 15px;
+                line-height: 18px;
+                color: #FFFFFF;
+
+            }
+
+            &:nth-child(1) {
+                width: 20.34%;
+            }
+
+            &:nth-child(2) {
+                width: 21.66%;
+            }
+
+            &:nth-child(3) {
+                width: 16.3%;
+            }
+
+        }
+    }
+
+    &--full_descr_of_step {
+        display: inline-block;
+        width: 23.43%;
+        height: 42.63%;
+        margin-left: 6.88%
+    }
+
+    &--number_of_full_descr_step {
+        font-family: Yeseva One;
+        font-style: normal;
+        font-weight: normal;
+        @include responsiveText(15px, 18px);
+        // font-size: 18px;
+        line-height: 25px;
+        padding-bottom: 22px;
+        text-transform: uppercase;
+
+        color: #FFFFFF;
+
+    }
+
+    &--headline_of_full_descr_step {
+        font-family: Yeseva One;
+        font-style: normal;
+        font-weight: normal;
+        @include responsiveText(13px, 15px);
+        //font-size: 15px;
+        line-height: 23px;
+        text-transform: uppercase;
+        padding-bottom: 13px;
+        color: #E3B873;
+
+    }
+
+    &--description_full {
+        font-family: FuturaBookC;
+        @include responsiveText(13px, 15px);
+        //font-size: 15px;
+        line-height: 25px;
+
+        color: #FFFFFF;
+
+    }
+
+    &--logo {
+        display: inline-block;
+        width: 55.9%;
+        height: 37.83%;
+        margin-left: 9%;
+
+
+    }
+
+}
+
+.our_team {
+    position: relative;
+    height: 8.65%;
+    //  background: purple;
+
+    &--logo {
+        position: relative;
+
+        height: 15.85%;
+
+        font-family: Yeseva One;
+        font-style: normal;
+        font-weight: normal;
+
+
+        line-height: 28px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        background: #131313;
+        background-image: url("../assets/images/our_team-logo.svg");
+        background-repeat: no-repeat;
+        background-position: 50% 33%;
+
+        & .our_team--team_description {
+            font-family: FuturaBookC;
+            font-size: 20px;
+            line-height: 27px;
+            padding-top: 3%;
+            text-align: center;
+            color: #FFFFFF;
+            text-transform: none;
+
+        }
+    }
+
+    &--collums_container {
+
+        display: flex;
+        justify-content: space-evenly;
+        width: 73.93%;
+        height: 53.98%;
+        margin-left: 11.89%;
+
+    }
+
+    &--collumn_children {
+        position: relative;
+        bottom: 20%;
+        width: 85.5%;
+        height: 33.1%;
+        margin-left: 8%;
+        background: #FFFFFF;
+        text-align: center;
+    }
+
+    &--position_logo {
+        position: relative;
+        width: 26%;
+        height: 17%;
+        right: 12%;
+        top: 12%;
+
+        &-first {
+            height: 100%;
+            background-image: url(../assets/images/our_team-first_worker-position_logo.png);
+            background-position: center;
+        }
+
+        &-second {
+            height: 100%;
+            background-image: url(../assets/images/our_team-second_worker-position_logo.svg);
+            background-position: center;
+        }
+
+        &-third {
+            height: 100%;
+            background-image: url(../assets/images/our_team-third_worker-position_logo.svg);
+            background-position: center;
+        }
+    }
+
+    &_column {
+        width: 25.64%;
+        height: 82.14%;
+
+        & .name {
+
+            height: 0.4%;
+            padding-top: 10.05%;
+            font-family: Yeseva One;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 25px;
+            text-align: center;
+            background: #FFFFFF;
+            color: #181818;
+
+        }
+
+        & .position {
+            margin-top: 12%;
+            font-family: FuturaBookC;
+            font-size: 18px;
+            line-height: 26px;
+            text-align: center;
+            color: #959595;
+
+        }
+
+        & .work_experience {
+            width: 100%;
+            height: 24.2%;
+            padding-top: 5%;
+            margin-top: 8%;
+            font-family: Yeseva One;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 20px;
+            text-align: center;
+            text-transform: uppercase;
+
+            color: #FFFFFF;
+            background: #E3B873;
+        }
+    }
+
+    &--description {
+        width: 38.80%;
+        height: 14.56%;
+        font-family: FuturaBookC;
+        font-size: 20px;
+        line-height: 34px;
+        text-align: center;
+        color: #363636;
+        margin-left: 30.66%;
+        margin-top: 3%;
+    }
+}
+
+.our_clients {
+
+    height: 6.82%;
+
+
+    &--logo {
+
+        width: 17.87%;
+        height: 10.32%;
+        margin-left: 38.05%;
+        background-image: url(../assets/images/our_clients_logo.svg);
+        background-repeat: no-repeat;
+        background-position: 50% 100%;
+        font-family: Yeseva One;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #181818;
+    }
+
+    &--description {
+
+        width: 33.1%;
+        height: 8.87%;
+        margin-top: 1.15%;
+        margin-left: 30.51%;
+        font-family: FuturaBookC;
+        font-size: 20px;
+        line-height: 27px;
+        text-align: center;
+
+        color: #363636;
+
+    }
+
+    &--review_container {
+
+        width: 85.95%;
+        height: 70.79%;
+        margin-left: 7.09%;
+        margin-top: 4%;
+        display: flex;
+        justify-content: space-between;
+
+        & .column {
+            position: relative;
+            width: 30.42%;
+            height: 89.66%;
+
+            &--reviewer_logo {
+                width: 11.81%;
+                height: 22.81%;
+            }
+
+            &--reviewer_name {
+
+                position: relative;
+                left: 17%;
+                bottom: 18%;
+
+
+                font-family: Yeseva One;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 23px;
+
+                color: #181818;
+
+            }
+
+            &--review {
+                width: 86.2%;
+                //height: fit-content;
+                height: 52%;
+                //    height: 73%;
+                overflow: hidden;
+                font-family: FuturaBookC;
+                @include responsiveText(12px, 15px);
+                line-height: 180%;
+                /* or 27px */
+
+
+                color: #959595;
+            }
+
+            &--price_label {
+                //    position: relative;
+                width: 78.1%;
+                height: 15.8%;
+                bottom: 0%;
+                top: 24%;
+                font-family: Yeseva One;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 17px;
+                line-height: 24px;
+                text-transform: uppercase;
+
+                color: #FFFFFF;
+
+                background: #E3B873;
+                box-shadow: 5px 5px 20px rgba(227, 184, 115, 0.5);
+
+                &-left {
+                    display: inline-block;
+                    width: 46.07%;
+                    height: 100%;
+                    text-align: right;
+                    padding-right: 4%;
+                    padding-top: 5%;
+                    vertical-align: middle;
+                    border-right: 1px solid white;
+                    background-image: url("../assets/images/our_clients_square-logo.svg");
+                    background-repeat: no-repeat;
+                    background-position: 10% 44%;
+                }
+
+                &-right {
+                    display: inline-block;
+                    width: 46.58%;
+                    height: 100%;
+                    text-align: right;
+                    padding-top: 5%;
+                    vertical-align: middle;
+                    background-image: url("../assets/images/our_clients_days-logo.svg");
+                    background-repeat: no-repeat;
+                    background-position: 10% 44%;
+                }
+            }
+        }
+    }
+}
+
+.contact_info {
+    // position: relative;
+    height: 12.79%;
+    padding: 1px 0;
+    background: pink;
+
+    &--question_form_container {
+        // position: relative;
+
+        margin: 7.63% auto 0%;
+        // left: 20.58%;
+        width: 61.5%;
+        height: 37.52%;
+        background: purple;
+
+        & .form-headline {
+            padding-top: 7.63%;
+            font-family: Yeseva One;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 28px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+
+        & .question_form {
+            display: flex;
+            flex-wrap: wrap;
+
+            &--text_input {
+                width: 100%;
+                font-family: FuturaBookC;
+                font-size: 18px;
+                line-height: 24px;
+                background: none;
+                color: #FFFFFF;
+
+
+                &-first_line {
+                    width: 25.7%;
+                    margin-top: 5.29%;
+
+                    &:first-child {
+                        margin-left: 19.7%;
+                        margin-right: 6.16%;
+                        margin-top: 5.29%;
+                    }
+                }
+
+                &-second_line {
+                    width: 58.46%;
+                    margin-top: 6.24%;
+                    margin-left: 19.7%;
+
+                    &-input {
+                        width: 100%;
+                    }
+                }
+
+
+            }
+
+            &--checkbox_input {
+                display: block;
+                width: 32.34%;
+                margin-left: 17.52%;
+            }
+
+            &--submit_button {
+                width: 22.65%;
+                height: 11.67%;
+            }
+
+            &--label {
+                font-family: FuturaBookC;
+                font-size: 15px;
+                line-height: 20px;
+
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            /*      &--label_for_first {
+                position: relative;
+                font-family: FuturaBookC;
+                font-size: 15px;
+                line-height: 20px;
+                
+                color: rgba(255, 255, 255, 0.5);
+                
+            } */
+
+        }
+    }
+
+    &--adress {
+
+        width: 40.95%;
+        height: 11.72%;
+        margin: 0 auto;
+
+        font-family: Yeseva One;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #E3B873;
+
+        & .contact_info_logo_container {
+            margin-top: 2%;
+
+            &--inst_logo {
+                margin-left: 2%;
+            }
+
+
+        }
+    }
+
+    &--map {
+        margin: 3% auto 0;
+        width: 64.32%;
+        height: 36.22%;
+
+    }
+
+    &_flex_cont {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3.4%;
+    }
+}
+
+footer {
+
+    width: 100%;
+    height: 1.31%;
+    background: #131313;
+
+    & .container {
+        display: flex;
+        justify-content: space-between;
+        vertical-align: middle;
+        flex-wrap: wrap;
+
+        width: 87.3%;
+        height: 100%;
+        padding-top: 2.8%;
+        margin: 0 auto;
+
+        & .header-RequestCall {
+            margin-top: -1%;
+        }
+    }
+
+    & .name {
+        color: yellow;
+        height: 12.2%;
+        font-family: FuturaDemiC;
+        font-size: 0.875em;
+        line-height: 16px;
+        text-transform: uppercase;
+        color: $col;
+    }
+
+    & .header-nav {
+
+
+        min-width: 46.3%;
+        height: 12.2%;
+        align-items: center;
+
+        &--ul {
+
+            height: 100%;
+            display: flex;
+            flex-basis: auto;
+            flex-shrink: 1;
+            font-family: FuturaBookC;
+            font-size: 0.85em;
+            line-height: 16px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+
+            //justify-content: space-between;
+            & li {
+                //п display:inline-block;
+            }
+
+            & li:not(:first-child) {
+                margin-left: 8.08%;
+            }
+
+            & a {
+                text-decoration: none;
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    & .header-phone {
+
+
+
+        min-width: 10.04%;
+        height: 19.2%;
+        //font-family: FuturaDemiC;
+        font-family: FuturaDemiC;
+        font-size: $px14;
+        line-height: 16px;
+        text-align: right;
+        text-decoration-line: underline;
+
+        color: #E3B873;
+
+    }
+
+    & .header-RequestCall {
+
+        position: relative;
+        min-width: 12.83%;
+        height: 45.1%;
+        background: #E3B873;
+        box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.2);
+        border-radius: 5.4%;
+
+        & span {
+            position: absolute;
+            top: 32%;
+            left: 22%;
+            min-width: 59.38%;
+            height: 30%;
+            font-family: FuturaDemiC;
+            font-size: 0.8125em;
+            line-height: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+    }
+}
+
+// media query start
+@media (max-width: 375px) {
+    .wrapper {
+        max-width: 375px;
+        height: 9023px;
+        background: #252525;
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    .header-RequestCall {
+        display: none;
+    }
+
+    aside {
+        display: none;
+    }
+
+    .portfolio--cities_nav {
+        display: none;
+    }
+
+    .portfolio--video {}
+
+    .intro--scroll-down {
+        display: none;
+    }
+
+    .portfolio--change_project {
+        display: none;
+    }
+
+    .portfolio--slider-right {
+        display: none;
+    }
+
+    .types-of-repair--columns {}
+
+    .consultation_order {
+        display: none;
+    }
+
+    .design_types--list {
+        display: none;
+    }
+.left_column{
+    display: none;
+}
+    .right_column {
+        display: none;
+    }
+
+    .design_project--collums_container {
+        flex-direction: column;
+    }
+
+    .working_steps {
+        display: none;
+    }
+
+    .our_team {
+        &--description {
+            display: none;
+
+        }
+
+        &--collums_container {
+            flex-direction: column;
+        }
+    }
+
+
+    .our_clients {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    //
+    body {
+        font-size: 70%;
+    }
+
+    header {
+        height: 0.65%;
+
+        div {
+            margin-top: 6%
+        }
+
+    }
+
+    main {
+        width: 100%;
+
+        max-width: 375px;
+        height: 99.35%;
+    }
+
+
+    .intro {
+        height: 5.45%;
+
+        &::before {
+            display: none;
+        }
+
+        &--content {
+            width: 100%;
+
+        }
+
+        &--form {
+            width: 94.5%;
+            height: 19%;
+            flex-direction: column;
+        }
+
+        &--button {
+            width: 100%;
+            height: 40%;
+        }
+    }
+
+
+    .portfolio {
+        height: 9.62%;
+        margin-top: 0;
+
+        &--slider {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 28.66%;
+            bottom: 12%;
+            margin: 0;
+
+            &-center {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .completed_projects {
+            width: 100%;
+            display: block;
+            margin: 0;
+            padding-top: 5%;
+            text-align: center;
+
+            &--headline {
+                width: 100%;
+            }
+
+            &--flex_container {
+                position: relative;
+                top: 100%;
+                margin-top: 0;
+            }
+        }
+
+        &--video {
+            //добавил 20.10
+            margin-top: 21%;
+            margin-left: 3.63%;
+            width: 92.81%;
+            height: 24.59%;
+        }
+
+        &--online-control {
+            //margin-top: 63.25%;
+           // margin-top: 22.25%;
+            text-align: center;
+            width: 65.88%;
+            margin: 22.25% auto 0;
+        }
+    }
+
+    .online-control {
+        height: 8.85%;
+
+        &--description {
+            width: 90.66%;
+            padding-top: 63.38%;
+            margin: 0 auto;
+
+            &-desktop {
+                display: none;
+            }
+
+            &-mobile {
+                display: block;
+                font-family: FuturaBookC;
+                font-size: 14px;
+                line-height: 24px;
+                /* or 24px */
+
+                text-align: center;
+
+                color: #FFFFFF;
+
+            }
+        }
+
+        &--form {
+            width: 90.7%;
+            height: 40.21%;
+            margin: 0 auto;
+
+            & .form_online_control {
+                flex-direction: column;
+
+                &--submit_btn {
+                    width: 100%;
+                    height: 16%;
+                }
+
+                &--text_input {
+                    height: 6.7%;
+                    width: 100%;
+                    font-family: FuturaBookC;
+                    font-size: 18px;
+                    line-height: 138.72%;
+                    /* or 25px */
+
+
+                    color: #FFFFFF;
+                }
+
+                &--text_label {
+                    height: 3.8%;
+                    left: 0;
+                    bottom: 0;
+                    top: 9%;
+
+                    font-family: FuturaBookC;
+                    font-size: 15px;
+                    line-height: 20px;
+
+                    color: rgba(255, 255, 255, 0.5);
+                }
+
+
+
+            }
+        }
+    }
+
+    .types-of-repair {
+        background: #FFFFFF;
+        height: 20.95%;
+
+        &--columns {
+            flex-direction: column;
+            width: 90.66%;
+            height: 85.73%;
+            margin: 0 auto;
+        }
+
+        &--column {
+            width: 100%;
+            height: 23.24%;
+            margin-bottom: 34%;
+        }
+
+        &--children {
+            width: 79.18%;
+            height: 65.9%;
+            bottom: 38%;
+            left: 0;
+        }
+        &--logo{
+            width: 75.58%;
+            background-position: bottom 56% center;
+            margin: 0 auto;
+        }
+    }
+
+    .design_types {
+        
+
+        height: 4.34%;
+background-image: none;
+        &--headline {
+            width: 100%;
+            height: 17.3%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #FFFFFF;
+        }
+
+        &--images_container {
+            position: relative;
+            display: block;
+            width: 90.66%;
+            height: 63.9%;
+           // margin-top: 10%;
+            margin: 10% auto 0;
+            bottom: 0;
+                & .mobile_slider{
+              
+                  
+           display: block;
+       }
+        }
+    }
+
+    .design_project {
+        height: 20.46%;
+
+        &--logo {
+            width: 68.57%;
+            height: 3.89%;
+            margin: 0 auto;
+            padding: 0;
+            color: #FFFFFF;
+        }
+
+        &--description {
+            width: 89.05%;
+            height: 4.27%;
+            margin: 0 auto;
+            color: white;
+            line-height: 20px
+        }
+
+        &--collums_container {
+            width: 90.66%;
+            margin: 5% auto;
+            flex-direction: column;
+            height: 83.1%;
+        }
+
+        &_column {
+            width: 100%;
+            height: 24.54%;
+            margin-bottom: 32%;
+
+            &:nth-child(1) {
+                & .design_project_column--children {
+                    height: 66%;
+                }
+            }
+
+            &:nth-child(2) {
+                & .design_project_column--children {
+                    height: 66%;
+                }
+            }
+
+            &:nth-child(3) {
+                & .design_project_column--children {
+                    height: 66%;
+                }
+            }
+
+            &_list {
+                &--li:nth-child(n+7) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .our_team {
+        height: 19.21%;
+
+        &--logo {
+            height: 7.38%;
+         background: #252525;
+         background-image: url(../assets/images/our_team-logo.svg) ;
+         background-repeat: no-repeat;
+         background-position: 50% 33%;
+
+
+            & .our_team--team_description {
+                font-size: 15px;
+                line-height: 135.84%;
+                padding-top: 12%;
+            }
+        }
+
+        &--collums_container {
+            height: 91.2%;
+            width: 81.1%;
+        }
+
+        &_column {
+            width: 100%;
+            height: 22.73%;
+            margin: 0 auto;
+
+            & img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &--collumn_children {
+            width: 76.5%;
+            height: 38.85%;
+            bottom: 22%;
+            margin: 0 auto;
+        }
+
+    }
+
+    .contact_info {
+        height: 11.28%;
+
+        &--question_form_container {
+            width: 91.89%;
+            height: 49.2%;
+            margin: 0 auto;
+            top: 0;
+            left: 0;
+
+            & .question_form {
+                flex-direction: column;
+
+                &--text_input-first_line {
+                    width: 100%;
+
+                    & input[type="text"] {
+                        margin-left: 0;
+                        width: 100%;
+
+                    }
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+
+                }
+
+                &--text_input-second_line {
+                    width: 100%;
+                    margin-left: 0;
+                }
+
+                &--submit_button {
+                    width: 100%;
+                    margin-top: 13%;
+                    padding-top: 5%;
+                    padding-bottom: 5%;
+                }
+            }
+
+        }
+
+        &_flex_cont {
+            flex-direction: column-reverse;
+            width: 90.66%;
+            height: 43.6%;
+            margin: 3.4% auto 0;
+            justify-content: space-around;
+        }
+
+        &--map {
+            width: 100%;
+            height: 58.22%;
+
+
+            left: 0;
+            bottom: 11.6%;
+            top: 1px;
+
+            &>img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &--adress {
+            width: 100%;
+            height: 30.72%;
+        }
+
+
+    }
+}
